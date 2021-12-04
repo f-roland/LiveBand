@@ -15,22 +15,34 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@babel/preset-typescript": "^7.16.0",
     "@expo/next-adapter": "~2.1.52",
+    "@testing-library/jest-dom": "5.14.1",
+    "@testing-library/react": "12.0.0",
+    "@testing-library/user-event": "13.2.1",
+    "@types/jest": "^27.0.3",
     "@types/react": "^17.0.37",
     "@types/react-native": "^0.66.8",
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
+    "babel-jest": "27.0.6",
     "eslint": "^8.4.0",
+    "eslint-config-next": "latest",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.1",
+    "eslint-plugin-testing-library": "4.11.0",
+    "jest": "27.3.1",
     "prettier": "^2.5.1",
+    "react-test-renderer": "17.0.2",
+    "ts-jest": "^27.0.7",
     "typescript": "^4.5.2"
   },
   "scripts": {
     "prepare": "husky install",
     "lint": "eslint '*/**/*.{js,ts,tsx}' --fix",
-    "test": "echo 'soon'",
+    "test": "jest --watch",
+    "test:ci": "jest --ci",
     "start": "next dev",
     "android": "expo start --android",
     "ios": "expo start --ios",
@@ -42,7 +54,7 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
-      "pre-push": "yarn build"
+      "pre-push": "yarn build && yarn test:ci"
     }
   },
   "lint-staged": {
