@@ -1,5 +1,9 @@
 {
+  "main": "main/index.js",
   "dependencies": {
+    "app-root-path": "^3.0.0",
+    "electron-is-dev": "^2.0.0",
+    "electron-next": "^3.1.5",
     "expo": "^43.0.0",
     "husky": "^7.0.4",
     "next": "9.4.4",
@@ -26,6 +30,7 @@
     "@typescript-eslint/eslint-plugin": "^5.5.0",
     "@typescript-eslint/parser": "^5.5.0",
     "babel-jest": "27.0.6",
+    "electron": "^16.0.4",
     "eslint": "^8.4.0",
     "eslint-config-next": "latest",
     "eslint-config-prettier": "^8.3.0",
@@ -48,7 +53,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "build": "next build"
+    "build": "next build",
+    "start:electron": "electron ."
   },
   "private": true,
   "husky": {
