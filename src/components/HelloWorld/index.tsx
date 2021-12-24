@@ -16,7 +16,7 @@ export function HelloWorld() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Hello 👋</Text>
-      <Text style={styles.text}>Happi Karaoke v2 is coming soon ! 🚀 🎸 🎹 🥁 </Text>
+      <Text style={styles.text}>Live Band is coming soon ! 🚀 🎸 🎹 🥁 </Text>
     </View>
   );
 }

@@ -1,6 +1,6 @@
-# Happi Karaoke v2
+# Live Band
 
-This repo contains the code of the new Happi Karaoke app.
+This repo contains the code of the new Live Band app.
 
 ### Set up
 

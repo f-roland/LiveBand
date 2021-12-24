@@ -26,7 +26,7 @@ exports[`it renders correctly renders correctly 1`] = `
       }
     }
   >
-    Happi Karaoke v2 is coming soon ! 🚀 🎸 🎹 🥁 
+    Live Band is coming soon ! 🚀 🎸 🎹 🥁 
   </Text>
 </View>
 `;
