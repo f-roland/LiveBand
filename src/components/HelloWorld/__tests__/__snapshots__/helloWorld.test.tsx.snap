@@ -5,15 +5,22 @@ exports[`it renders correctly renders correctly 1`] = `
   style={
     Object {
       "alignItems": "center",
+      "backgroundColor": "#343536",
       "flex": 1,
       "justifyContent": "center",
+      "minHeight": "100vh",
+      "minWidth": "100vw",
     }
   }
 >
   <Text
     style={
       Object {
-        "fontSize": 16,
+        "color": "#D7C4A3",
+        "fontFamily": "SFProText, Roboto, Arial, sans-serif",
+        "fontSize": 30,
+        "fontWeight": "800",
+        "marginVertical": 24,
       }
     }
   >
@@ -22,7 +29,11 @@ exports[`it renders correctly renders correctly 1`] = `
   <Text
     style={
       Object {
-        "fontSize": 16,
+        "color": "#D7C4A3",
+        "fontFamily": "SFProText, Roboto, Arial, sans-serif",
+        "fontSize": 18,
+        "fontWeight": "600",
+        "marginVertical": 6,
       }
     }
   >

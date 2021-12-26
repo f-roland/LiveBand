@@ -1,6 +1,7 @@
 {
   "main": "main/index.js",
   "dependencies": {
+    "@supabase/supabase-js": "^1.29.1",
     "app-root-path": "^3.0.0",
     "electron-is-dev": "^2.0.0",
     "electron-next": "^3.1.5",
