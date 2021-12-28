@@ -49,3 +49,5 @@ export function useResponsiveValue<T>(specs: ResponsiveSpecs<T>) {
 }
 
 export const getResponsiveValue = responsiveValue;
+
+export { colors, spacings, borders } from "./theme";

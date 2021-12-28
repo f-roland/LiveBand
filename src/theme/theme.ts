@@ -15,13 +15,41 @@ const black = "#000000";
 const primary = opal;
 const secondary = champagne;
 
-const spacings = {
+export const colors = {
+  primary,
+  secondary,
+  white,
+  black,
+  lightGrey,
+  jet,
+  nickel,
+  opal,
+  steelTeal,
+  champagne,
+  dutchWhite,
+};
+
+export const spacings = {
   xs: 3,
   s: 6,
   m: 12,
   l: 24,
   xl: 48,
   xxl: 96,
+};
+
+export const borders = {
+  radius: {
+    s: 4,
+    m: 10,
+    l: 20,
+    circle: "50%",
+  },
+  width: {
+    s: 1,
+    m: 4,
+    l: 6,
+  },
 };
 
 function themeStyle<T>(styles: T) {
@@ -46,20 +74,9 @@ export function responsiveValue<T>(specs: ResponsiveSpecs<T>, dimensions: Scaled
 }
 
 export const theme = (dimensions: ScaledSize) => ({
-  colors: {
-    primary,
-    secondary,
-    white,
-    black,
-    lightGrey,
-    jet,
-    nickel,
-    opal,
-    steelTeal,
-    champagne,
-    dutchWhite,
-  },
+  colors,
   spacings,
+  borders,
   typography: {
     h0: themeStyle<TextStyle>({
       fontSize: responsiveValue<number>({ desktop: 48, mobile: 30 }, dimensions),
@@ -90,11 +107,29 @@ export const theme = (dimensions: ScaledSize) => ({
       fontFamily: "SFProText, Roboto, Arial, sans-serif",
       fontWeight: "300",
     }),
+    buttonLabel: themeStyle<TextStyle>({
+      fontSize: responsiveValue<number>({ desktop: 18, mobile: 14 }, dimensions),
+      lineHeight: 24,
+      fontFamily: "SFProText, Roboto, Arial, sans-serif",
+      fontWeight: "600",
+      color: dutchWhite,
+    }),
   },
   views: {
     container: themeStyle<ViewStyle>({
       flex: 1,
       backgroundColor: jet,
+    }),
+    textButton: themeStyle<ViewStyle>({
+      backgroundColor: colors.opal,
+      borderRadius: borders.radius.m,
+      paddingHorizontal: spacings.l,
+      paddingVertical: spacings.m,
+      margin: spacings.m,
+      flexDirection: "row",
+      alignItems: "flex-end",
+      justifyContent: "center",
+      minWidth: 300,
     }),
   },
   forms: {
