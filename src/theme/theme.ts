@@ -96,6 +96,12 @@ export const theme = (dimensions: ScaledSize) => ({
       fontWeight: "600",
       color: dutchWhite,
     }),
+    h3: themeStyle<TextStyle>({
+      fontSize: responsiveValue<number>({ desktop: 14, mobile: 10 }, dimensions),
+      fontFamily: "SFProText, Roboto, Arial, sans-serif",
+      fontWeight: "600",
+      color: dutchWhite,
+    }),
     p: themeStyle<TextStyle>({
       fontSize: 12,
       fontFamily: "SFProText, Roboto, Arial, sans-serif",
@@ -130,6 +136,17 @@ export const theme = (dimensions: ScaledSize) => ({
       alignItems: "flex-end",
       justifyContent: "center",
       minWidth: 300,
+    }),
+    iconButton: themeStyle<ViewStyle>({
+      backgroundColor: colors.opal,
+      borderRadius: borders.radius.m,
+      paddingHorizontal: spacings.m,
+      paddingVertical: spacings.m,
+      margin: spacings.m,
+      alignItems: "center",
+      justifyContent: "center",
+      width: responsiveValue({ desktop: 80, tablet: 60, mobile: 40 }, dimensions),
+      height: responsiveValue({ desktop: 80, tablet: 60, mobile: 40 }, dimensions),
     }),
   },
   forms: {

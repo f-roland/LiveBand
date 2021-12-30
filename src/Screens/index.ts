@@ -1,4 +1,5 @@
 import { Admin } from "./Admin";
+import { Guest } from "./Guest";
 import { Home } from "./Home";
 
 export const Screens = {
@@ -11,5 +12,10 @@ export const Screens = {
     name: "Admin",
     routeName: "admin",
     Component: Admin,
+  },
+  GUEST: {
+    name: "Guest",
+    routeName: "guest",
+    Component: Guest,
   },
 };

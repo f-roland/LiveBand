@@ -17,6 +17,7 @@ export function Home() {
       <Text style={styles.title}>{labels.Hello}</Text>
       <Text style={styles.text}>{labels.homeBaseline}</Text>
       <Button icon="add" title={labels.openSessionButton} href="admin" />
+      <Button icon="open-in-browser" title={labels.joinSessionButton} href="guest" />
     </Container>
   );
 }
