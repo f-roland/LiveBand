@@ -87,16 +87,18 @@ export function Search() {
           </View>
         )}
       </View>
-      <ScrollView style={styles.results}>
-        {results.map((song, index) => (
-          <TouchableOpacity key={index} onPress={() => setCurrentSong(song)}>
-            <View style={styles.result}>
-              <Text style={styles.author}>{song.author}</Text>
-              <Text style={styles.title}>{song.title}</Text>
-            </View>
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
+      {query && results?.length > 0 && (
+        <ScrollView style={styles.results}>
+          {results.map((song, index) => (
+            <TouchableOpacity key={index} onPress={() => setCurrentSong(song)}>
+              <View style={styles.result}>
+                <Text style={styles.author}>{song.author}</Text>
+                <Text style={styles.title}>{song.title}</Text>
+              </View>
+            </TouchableOpacity>
+          ))}
+        </ScrollView>
+      )}
     </View>
   );
 }

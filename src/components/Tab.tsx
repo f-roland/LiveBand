@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useAtom } from "jotai";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 import { currentSong } from "src/atoms/songs";
@@ -54,14 +54,22 @@ export function Tab({ isAdmin }: Props) {
   }));
 
   const ref = useRef(null);
-
+  const [showNextButton, setShowNextButton] = useState(false);
   const [song] = useAtom(currentSong);
+
+  useEffect(() => {
+    ref?.current?.scrollToIndex?.({ index: 0, animated: true });
+    setShowNextButton(false);
+  }, [song?.title]);
 
   if (!song) return null;
 
   return (
     <View style={styles.container}>
       <FlatList
+        onEndReached={() => {
+          setShowNextButton(true);
+        }}
         ref={ref}
         data={song.lines}
         renderItem={({ item, index }) => {
@@ -83,7 +91,7 @@ export function Tab({ isAdmin }: Props) {
         }}
       />
 
-      {isAdmin && (
+      {isAdmin && showNextButton && (
         <View style={styles.nextButtonContainer}>
           <Button icon="skip-next" title={labels.nextSong} />
         </View>
