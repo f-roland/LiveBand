@@ -11,6 +11,7 @@ type Props = {
   onPress?: () => void;
   href?: string;
   title?: string;
+  secondary?: boolean;
   iconType?:
     | "MaterialIcons"
     | "Ionicons"
@@ -28,14 +29,22 @@ type Props = {
 };
 
 export function Button(props: Props) {
-  const { icon, onPress, href, title = null, iconType = "MaterialIcons" } = props;
+  const { icon, onPress, href, title = null, iconType = "MaterialIcons", secondary } = props;
 
   const styles = useCreateStyles(({ theme }) => ({
     container: title ? theme.views.textButton() : theme.views.iconButton(),
+    buttonColor: { backgroundColor: secondary ? theme.colors.champagne : theme.colors.opal },
     hoveredContainer: {
-      backgroundColor: theme.colors.steelTeal,
+      backgroundColor: secondary ? theme.colors.dutchWhite : theme.colors.steelTeal,
     },
-    text: theme.typography.buttonLabel({ color: theme.colors.lightGrey, marginHorizontal: theme.spacings.m }),
+    text: theme.typography.buttonLabel({
+      color: secondary ? theme.colors.nickel : theme.colors.lightGrey,
+      marginHorizontal: theme.spacings.m,
+    }),
+    hoveredText: theme.typography.buttonLabel({
+      color: secondary ? theme.colors.nickel : theme.colors.lightGrey,
+      marginHorizontal: theme.spacings.m,
+    }),
   }));
 
   const _iconSize = useResponsiveValue({ desktop: 32, mobile: 24 });
@@ -61,10 +70,10 @@ export function Button(props: Props) {
       {/* @ts-ignore */}
       {({ hovered }) => (
         <LinkWrapper {...linkProps}>
-          <View style={[styles.container, hovered ? styles.hoveredContainer : {}]}>
+          <View style={[styles.container, hovered ? styles.hoveredContainer : styles.buttonColor]}>
             {/* @ts-ignore */}
-            <Component name={icon} size={iconSize} color={colors.lightGrey} />
-            {title && <Text style={styles.text}>{title}</Text>}
+            <Component name={icon} size={iconSize} color={secondary ? colors.nickel : colors.lightGrey} />
+            {title && <Text style={hovered ? styles.hoveredText : styles.text}>{title}</Text>}
           </View>
         </LinkWrapper>
       )}

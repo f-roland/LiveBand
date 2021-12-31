@@ -6,7 +6,7 @@ export function SongHeader() {
   const styles = useCreateStyles(({ theme, responsiveValue }) => ({
     container: {
       width: "100%",
-      marginVertical: responsiveValue({ desktop: theme.spacings.l, mobile: theme.spacings.xs }),
+      marginBottom: responsiveValue({ desktop: theme.spacings.s, mobile: theme.spacings.xs }),
     },
     titleContainer: { flexDirection: "row", alignItems: "flex-end", paddingTop: theme.spacings.s },
     songTitle: theme.typography.h1({ lineHeight: 40, flexGrow: 1 }),

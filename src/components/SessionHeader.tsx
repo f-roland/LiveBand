@@ -15,13 +15,18 @@ export function SessionHeader({ isAdmin }: Props) {
       flexDirection: "row",
       justifyContent: "space-between",
     },
+    buttonsContainer: {
+      minWidth: 674,
+      flexDirection: "row",
+      justifyContent: "space-between",
+      marginHorizontal: -theme.spacings.l / 2,
+    },
     text: theme.typography.h0({ lineHeight: responsiveValue({ desktop: 104, tablet: 84, mobile: 35 }) }),
   }));
 
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Session Name</Text>
-      {isAdmin && <Button icon="play-arrow" onPress={() => console.log("play")} />}
     </View>
   );
 }
