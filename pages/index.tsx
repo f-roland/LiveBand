@@ -8,7 +8,7 @@ type Props = {
 };
 
 export default function App({ sessions }: Props) {
-  return <AppComponent />;
+  return <AppComponent songs={[]} />;
 }
 
 export async function getServerSideProps() {

@@ -40,3 +40,8 @@ html, body {
   font-family: "Open Sans", Arial, sans-serif;
   background-color: #343536;
 }
+
+input {
+  border: none;
+  outline: none;
+}

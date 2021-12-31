@@ -7,3 +7,4 @@ const FIELDS = ["id", "title", "author"];
 const Songs = getTable<Song>(TABLE_NAME, FIELDS);
 
 export default Songs;
+module.exports = Songs;

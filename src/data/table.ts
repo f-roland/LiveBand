@@ -44,6 +44,10 @@ export class Table<T extends Record<string, ColumnType>> {
   async delete(match) {
     return this.handleResponse(await this.query().delete().match(match));
   }
+
+  async create(data) {
+    return this.handleResponse(await this.query().insert(data));
+  }
 }
 
 interface TableI<T> {
@@ -51,6 +55,7 @@ interface TableI<T> {
   get(match: Record<string, ColumnType>, columns?: string): Promise<T[] | PostgrestError>;
   update(match: Record<string, ColumnType>, data: Record<string, ColumnType>): Promise<T[] | PostgrestError>;
   delete(match: Record<string, ColumnType>): Promise<T[] | PostgrestError>;
+  create(data: Partial<T>): Promise<any>;
 }
 
 type TableClient<T> = TableI<T> &

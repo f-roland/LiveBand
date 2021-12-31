@@ -3,6 +3,7 @@ import { View } from "react-native";
 import { useCreateStyles } from "src/theme";
 import { Button } from "@/components/Button";
 import { useRouting } from "expo-next-react-navigation";
+import { Search } from "./Search";
 
 export function AdminPanel() {
   const { goBack } = useRouting();
@@ -16,9 +17,11 @@ export function AdminPanel() {
     },
     adminContainer: {
       backgroundColor: theme.colors.nickel,
+      borderRadius: theme.borders.radius.s,
       flex: 1,
       padding: theme.spacings.l,
       marginTop: theme.spacings.l,
+      overflow: "hidden",
     },
   }));
 
@@ -30,7 +33,9 @@ export function AdminPanel() {
         <Button icon="settings" onPress={() => console.log("settings")} />
         <Button icon="exit-to-app" onPress={() => goBack()} />
       </View>
-      <View style={styles.adminContainer}></View>
+      <View style={styles.adminContainer}>
+        <Search />
+      </View>
     </View>
   );
 }

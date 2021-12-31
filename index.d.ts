@@ -12,6 +12,9 @@ declare type TableType<T extends Record<string, ColumnType>> = {
 type Song = TableType<{
   title: string;
   author: string;
+  key: string;
+  tags: string;
+  lines: string[];
 }>;
 
 type Playlist = TableType<{

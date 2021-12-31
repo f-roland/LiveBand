@@ -26,7 +26,7 @@ export function SessionHeader({ isAdmin }: Props) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Session Name</Text>
+      <Text style={styles.text}>Poney Vibrant</Text>
     </View>
   );
 }
