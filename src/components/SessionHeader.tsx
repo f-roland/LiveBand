@@ -1,13 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
+import { useAtom } from "jotai";
+
+import { currentSong } from "src/atoms/songs";
 import { useCreateStyles } from "src/theme";
-import { Button } from "./Button";
+import { sessionAtom } from "src/atoms/session";
 
-type Props = {
-  isAdmin?: boolean;
-};
-
-export function SessionHeader({ isAdmin }: Props) {
+export function SessionHeader() {
   const styles = useCreateStyles(({ theme, responsiveValue }) => ({
     container: {
       height: responsiveValue({ desktop: 104, tablet: 84, mobile: 35 }),
@@ -24,9 +23,12 @@ export function SessionHeader({ isAdmin }: Props) {
     text: theme.typography.h0({ lineHeight: responsiveValue({ desktop: 104, tablet: 84, mobile: 35 }) }),
   }));
 
+  const [song] = useAtom(currentSong);
+  const [session] = useAtom(sessionAtom);
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Poney Vibrant</Text>
+      <Text style={styles.text}>{song?.title ?? session.name}</Text>
     </View>
   );
 }

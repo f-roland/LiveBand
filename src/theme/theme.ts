@@ -2,6 +2,7 @@ import * as R from "ramda";
 import { TextStyle, ViewStyle, ScaledSize } from "react-native";
 
 const jet = "#343536";
+const jetLight = "#585D5D";
 const nickel = "#676E6E";
 const opal = "#8AB2B2";
 const steelTeal = "#658C8C";
@@ -10,6 +11,7 @@ const dutchWhite = "#D7C4A3";
 
 const white = "#ffffff";
 const lightGrey = "#efefef";
+const darkGrey = "#8F9494";
 const black = "#000000";
 
 const primary = opal;
@@ -21,7 +23,9 @@ export const colors = {
   white,
   black,
   lightGrey,
+  darkGrey,
   jet,
+  jetLight,
   nickel,
   opal,
   steelTeal,
@@ -82,31 +86,31 @@ export const theme = (dimensions: ScaledSize) => ({
       fontSize: responsiveValue<number>({ desktop: 48, mobile: 30 }, dimensions),
       fontFamily: "SFProText, Roboto, Arial, sans-serif",
       fontWeight: "800",
-      color: dutchWhite,
+      color: lightGrey,
     }),
     h1: themeStyle<TextStyle>({
       fontSize: responsiveValue<number>({ desktop: 24, mobile: 18 }, dimensions),
       fontFamily: "SFProText, Roboto, Arial, sans-serif",
       fontWeight: "600",
-      color: dutchWhite,
+      color: lightGrey,
     }),
     h2: themeStyle<TextStyle>({
       fontSize: responsiveValue<number>({ desktop: 18, mobile: 14 }, dimensions),
       fontFamily: "SFProText, Roboto, Arial, sans-serif",
       fontWeight: "600",
-      color: dutchWhite,
+      color: lightGrey,
     }),
     h3: themeStyle<TextStyle>({
       fontSize: responsiveValue<number>({ desktop: 14, mobile: 10 }, dimensions),
       fontFamily: "SFProText, Roboto, Arial, sans-serif",
       fontWeight: "600",
-      color: dutchWhite,
+      color: lightGrey,
     }),
     p: themeStyle<TextStyle>({
       fontSize: 12,
       fontFamily: "SFProText, Roboto, Arial, sans-serif",
       fontWeight: "400",
-      color: dutchWhite,
+      color: lightGrey,
     }),
     small: themeStyle<TextStyle>({
       fontSize: 10,
@@ -118,7 +122,7 @@ export const theme = (dimensions: ScaledSize) => ({
       lineHeight: 24,
       fontFamily: "SFProText, Roboto, Arial, sans-serif",
       fontWeight: "600",
-      color: dutchWhite,
+      color: lightGrey,
     }),
   },
   views: {

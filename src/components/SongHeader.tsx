@@ -2,10 +2,12 @@ import React from "react";
 import { useAtom } from "jotai";
 import { View, Text } from "react-native";
 import { currentSong } from "src/atoms/songs";
+import { sessionAtom } from "src/atoms/session";
 import { useCreateStyles } from "src/theme";
 
 export function SongHeader() {
   const [song] = useAtom(currentSong);
+  const [session] = useAtom(sessionAtom);
 
   const styles = useCreateStyles(({ theme, responsiveValue }) => ({
     container: {
@@ -27,9 +29,9 @@ export function SongHeader() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.songAuthor}>{song.author}</Text>
+      <Text style={styles.songAuthor}>{session.name}</Text>
       <View style={styles.titleContainer}>
-        <Text style={styles.songTitle}>{song.title}</Text>
+        <Text style={styles.songTitle}>{song.author}</Text>
         <Text style={styles.tempo}>{song.key} - 120</Text>
         <Text style={styles.tempoSignature}>bpm</Text>
       </View>

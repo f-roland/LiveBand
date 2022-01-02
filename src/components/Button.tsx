@@ -26,16 +26,17 @@ type Props = {
     | "Octicons"
     | "SimpleLineIcons"
     | "Zocial";
+  iconOnly?: boolean;
 };
 
 export function Button(props: Props) {
-  const { icon, onPress, href, title = null, iconType = "MaterialIcons", secondary } = props;
+  const { icon, onPress, href, title = null, iconType = "MaterialIcons", secondary, iconOnly = false } = props;
 
   const styles = useCreateStyles(({ theme }) => ({
-    container: title ? theme.views.textButton() : theme.views.iconButton(),
-    buttonColor: { backgroundColor: secondary ? theme.colors.champagne : theme.colors.opal },
+    container: iconOnly ? {} : title ? theme.views.textButton() : theme.views.iconButton(),
+    buttonColor: { backgroundColor: iconOnly ? "transparent" : secondary ? theme.colors.champagne : theme.colors.opal },
     hoveredContainer: {
-      backgroundColor: secondary ? theme.colors.dutchWhite : theme.colors.steelTeal,
+      backgroundColor: iconOnly ? "transparent" : secondary ? theme.colors.dutchWhite : theme.colors.steelTeal,
     },
     text: theme.typography.buttonLabel({
       color: secondary ? theme.colors.nickel : theme.colors.lightGrey,
@@ -49,7 +50,7 @@ export function Button(props: Props) {
 
   const _iconSize = useResponsiveValue({ desktop: 32, mobile: 24 });
 
-  const iconSize = title ? 24 : _iconSize;
+  const iconSize = title || iconOnly ? 24 : _iconSize;
 
   const Component = IconComponents[iconType] ?? IconComponents.MaterialIcons;
 
